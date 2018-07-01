@@ -24,18 +24,32 @@ new Vue({
     'movie-list': {
       template: `
         <div id="movie-list">
-          <div class="movie" v-for="movie in movies">{{ movie.title }}</div>
+          <div class="movie" v-for="movie in filteredMovies">{{ movie.title }}</div>
         </div>`,
       data() {
         return {
           movies: [
-            { title: 'Pulp Fiction' },
-           { title: 'Home Alone' },
-           { title: 'Austin Powers' }
+            { title: 'Pulp Fiction', genre: genres.ACTION },
+           { title: 'Home Alone', genre: genres.COMEDY },
+           { title: 'Austin Powers', genre: genres.COMEDY }
          ]
         }
       },
-      props: [ 'genre', 'time' ]
+      props: [ 'genre', 'time' ],
+      methods: {
+        moviePassesGenreFilter(movie) {
+          if(!this.genre.length) {
+            return true;
+          } else {
+            return this.genre.find(genre => movie.genre === genre);
+          }
+        }
+      },
+      computed: {
+        filteredMovies() {
+          return this.movies.filter(this.moviePassesGenreFilter);
+        }
+      }
     },
     'movie-filter': {
       data() {
