@@ -18,7 +18,8 @@ new Vue({
     genre: [],
     time: [],
     movies: [],
-    moment
+    moment,
+    day: moment()
   },
   methods: {
     checkFilter(category, title, checked) {
