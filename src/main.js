@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import './style.scss';
 
-import MovieList from './components/MovieList.vue';
-import MovieFilter from './components/MovieFilter.vue';
+import Overview from './components/Overview.vue';
 
 // import vue-resource for making web requests and handle responses using a XMLHttpRequest or JSONP. 
 import VueResource from 'vue-resource';
@@ -29,8 +28,7 @@ new Vue({
     bus
   },
   components: {
-    MovieList,
-    MovieFilter 
+    Overview
   },
   created() {
     this.$http
