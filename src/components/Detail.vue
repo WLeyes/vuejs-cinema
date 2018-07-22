@@ -1,6 +1,8 @@
 <template>
   <div id="detail" v-if="movie">
-    <movie-item v-bind:movie="movie.movie" v-bind:sessions="[]"></movie-item>
+    <movie-item v-bind:movie="movie.movie">
+      Hello World!
+    </movie-item>
   </div>
 </template>
 <script>
